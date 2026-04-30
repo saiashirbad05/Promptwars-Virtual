@@ -1,0 +1,55 @@
+ECI VOTER PORTAL - CHANGES SUMMARY
+=================================
+
+1. PERFORMANCE OPTIMIZATION (Frontend)
+--------------------------------------
+- Implemented route-level Code Splitting using React.lazy and Suspense.
+- Added a custom loading animation (PageLoader) for smooth page transitions.
+- Reduced initial bundle size for faster time-to-interactive.
+
+2. SECURITY HARDENING (Backend)
+-------------------------------
+- Implemented 'express-rate-limit' (100 requests / 15 minutes) to prevent DDoS and brute-force.
+- Configured 'helmet' with a strict Content Security Policy (CSP).
+- Enabled 'CORS' with dynamic origin validation.
+- Enabled 'trust proxy' for accurate rate-limiting on Cloud Run.
+
+3. ACCESSIBILITY (Frontend)
+---------------------------
+- Added ARIA landmarks (header, navigation) and descriptive labels for screen readers.
+- Implemented a fully accessible, responsive mobile navigation menu.
+- Managed focus states for the mobile menu toggle.
+
+4. GOOGLE AI INTEGRATION (Gemini)
+---------------------------------
+- Integrated Google Gemini 1.5 Flash via the @google/generative-ai SDK.
+- Created backend routes and controllers to handle AI chat history and responses.
+- Connected the frontend Chatbot to the real Gemini API (Live Status).
+
+5. TESTING & RELIABILITY
+------------------------
+- Configured Jest and ts-jest for backend testing.
+- Added integration tests for health checks and security headers.
+- Verified all improvements via automated test suites.
+
+6. CLOUD DEPLOYMENT
+-------------------
+- Deployed the hardened Backend to Cloud Run (election-portal-api).
+- Deployed the optimized Frontend to Cloud Run (election-portal).
+- Configured Nginx in the frontend container to proxy API requests to the backend service.
+- Fixed environment variable loading issues in the production container.
+
+FILES MODIFIED:
+- backend/src/server.ts
+- backend/src/routes/api.ts
+- backend/src/services/aiService.ts (NEW)
+- backend/src/controllers/aiController.ts (NEW)
+- backend/package.json
+- backend/tsconfig.json
+- backend/jest.config.js (NEW)
+- backend/src/__tests__/health.test.ts (NEW)
+- frontend/src/App.tsx
+- frontend/src/components/layout/Header.tsx
+- frontend/src/components/chatbot/Chatbot.tsx
+- frontend/Dockerfile
+- frontend/vite.config.ts
