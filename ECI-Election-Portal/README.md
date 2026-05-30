@@ -1,4 +1,4 @@
-# Promptwars-Virtual
+# ECI-Election-Portal
 
 > Your Vote. Your Democracy. Powered by Intelligence.
 
