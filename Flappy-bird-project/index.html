@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="description" content="FLAP.AI × IoT — The Human-First Evolved Flappy Bird. Gemini AI integrations, biometric sensors, and pixel-perfect gameplay.">
+  <title>FLAP.AI × IoT</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 100%; height: 100%;
+      background: #000;
+      overflow: hidden;
+      touch-action: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    #game-canvas {
+      display: block;
+      margin: 0 auto;
+      /* Nearest-neighbor scaling — keeps pixel art crisp */
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+      cursor: pointer;
+    }
+    /* Toast notification for IoT / fallback messages */
+    #toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: rgba(0,0,0,0.85);
+      color: #fff;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      padding: 10px 20px;
+      border-radius: 6px;
+      transition: transform 0.4s ease;
+      z-index: 100;
+      pointer-events: none;
+    }
+    #toast.show {
+      transform: translateX(-50%) translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <canvas id="game-canvas"></canvas>
+  <div id="toast"></div>
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
